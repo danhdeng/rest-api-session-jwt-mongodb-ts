@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@typegoose/typegoose": "^9.4.0",
+        "argon2": "^0.28.3",
         "bcrypt": "^5.0.1",
         "config": "^3.3.6",
         "cors": "^2.8.5",
