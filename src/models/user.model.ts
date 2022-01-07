@@ -7,9 +7,12 @@ import {
     modelOptions,
     Severity,
 } from '@typegoose/typegoose';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import argon2 from 'argon2';
 import log from '@/utils/logger';
+import { customAlphabet } from 'nanoid';
+
+const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10);
 
 // exclude fields being expose to the  api
 export const privateFields = [

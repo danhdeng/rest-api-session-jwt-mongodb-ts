@@ -12,8 +12,10 @@ import {
 } from '@/service/user.service';
 import sendEmail from '@/utils/mailer';
 import log from '@/utils/logger';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
+import { customAlphabet } from 'nanoid';
+const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10);
 export const createUserHandler = async (
     req: Request<{}, {}, CreateUserInput>,
     res: Response
