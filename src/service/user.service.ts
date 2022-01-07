@@ -11,5 +11,3 @@ export const findUserById = (id: string) => {
 export const findUserByEmail = (email: string) => {
     return UserModel.findOne({ email });
 };
-
-export default { createUser, findUserById, findUserByEmail };
