@@ -1,7 +1,8 @@
 import express, { Application } from 'express';
 import connectDB from '@/utils/connect';
 import IRoute from '@/interface/route.interface';
-import logger from '@/utils/logger';
+import log from '@/utils/logger';
+import deserializeUser from '@/middleware/deserializeUser';
 
 class App {
     public express: Application;
@@ -15,6 +16,7 @@ class App {
     }
     private initializeMiddleware() {
         this.express.use(express.json());
+        this.express.use(deserializeUser);
     }
     private intializeRoutes(routes: IRoute[]) {
         routes.forEach((route: IRoute) => {
@@ -25,9 +27,7 @@ class App {
     public listen = (): void => {
         this.express.listen(this.port, async () => {
             await connectDB();
-            logger.info(
-                `application is running at http://localhost:${this.port}`
-            );
+            log.info(`application is running at http://localhost:${this.port}`);
         });
     };
 }
